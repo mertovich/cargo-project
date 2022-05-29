@@ -6,5 +6,5 @@ import (
 )
 
 func InitRoutes() {
-	http.HandleFunc("/", handlers.IndexHandler)
+	http.HandleFunc("/api/registercargo", handlers.RegisterCargo)
 }
