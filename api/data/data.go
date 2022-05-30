@@ -6,7 +6,7 @@ import (
 	"io/ioutil"
 )
 
-func GetData() []models.Cargo {
+func GetAllData() []models.Cargo {
 	jsonFile, err := ioutil.ReadFile("../../data/data.json")
 	if err != nil {
 		panic(err)
@@ -15,7 +15,7 @@ func GetData() []models.Cargo {
 }
 
 func SaveData(cargo models.Cargo) bool {
-	data := GetData()
+	data := GetAllData()
 	data = append(data, cargo)
 	jsonData, err := json.Marshal(data)
 	if err != nil {
