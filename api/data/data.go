@@ -25,3 +25,15 @@ func SaveData(cargo models.Cargo) bool {
 	}
 	return true
 }
+
+func GetCargoID(id string) models.Cargo {
+	cargo := models.Cargo{}
+	tmpData := GetAllData()
+	for _, v := range tmpData {
+		if v.ID == id {
+			cargo = v
+		}
+	}
+
+	return cargo
+}
