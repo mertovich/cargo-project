@@ -21,7 +21,7 @@ func SaveData(cargo models.Cargo) bool {
 	if err != nil {
 		return false
 	} else {
-		ioutil.WriteFile("data/data.json", jsonData, 0644)
+		ioutil.WriteFile("../../data/data.json", jsonData, 0644)
 	}
 	return true
 }
@@ -34,6 +34,29 @@ func GetCargoID(id string) models.Cargo {
 			cargo = v
 		}
 	}
-
 	return cargo
+}
+
+func CargoDelete(id string) {
+	data := GetAllData()
+	tmpData := []models.Cargo{}
+	for _, v := range data {
+		if v.ID != id {
+			tmpData = append(tmpData, v)
+		}
+	}
+	// write to file
+	jsonData, err := json.Marshal(tmpData)
+	if err != nil {
+		panic(err)
+	} else {
+		ioutil.WriteFile("../../data/data.json", jsonData, 0644)
+	}
+}
+
+func CargoUpdateLocation(id string, location string) bool {
+	cargo := GetCargoID(id)
+	CargoDelete(id)
+	cargo.Location = location
+	return SaveData(cargo)
 }
