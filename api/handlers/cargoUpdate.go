@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"strings"
 
 	"github.com/mertovich/BodyParser"
 )
@@ -21,8 +22,8 @@ func UpdateCargoLocation(w http.ResponseWriter, r *http.Request) {
 	bodyByte, _ := ioutil.ReadAll(r.Body)
 	bodyString := string(bodyByte)
 	maps := BodyParser.Parser(bodyString)
-
-	data.CargoUpdateLocation(maps["id"], maps["location"])
+	location := strings.ReplaceAll(maps["location"], "%20", " ")
+	data.CargoUpdateLocation(maps["id"], location)
 	cargo := data.GetCargoID(maps["id"])
 
 	fmt.Fprint(w, cargo)
