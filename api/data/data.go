@@ -7,7 +7,7 @@ import (
 )
 
 func GetData() []models.Cargo {
-	jsonFile, err := ioutil.ReadFile("data/data.json")
+	jsonFile, err := ioutil.ReadFile("../../data/data.json")
 	if err != nil {
 		panic(err)
 	}
