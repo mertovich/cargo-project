@@ -2,7 +2,7 @@ package handlers
 
 import (
 	"api/data"
-	"api/model"
+	"api/models"
 	"api/tools"
 	"encoding/json"
 	"fmt"
@@ -26,7 +26,7 @@ func RegisterCargo(w http.ResponseWriter, r *http.Request) {
 	bodyString := string(bodyByte)
 	maps := BodyParser.Parser(bodyString)
 
-	cargo := model.Cargo{}
+	cargo := models.Cargo{}
 	cargo.Owner = strings.ReplaceAll(maps["owner"], "%20", " ")
 	cargo.Adress = strings.ReplaceAll(maps["adress"], "%20", " ")
 	cargo.Location = strings.ReplaceAll(maps["location"], "%20", " ")

@@ -1,20 +1,20 @@
 package data
 
 import (
-	"api/model"
+	"api/models"
 	"encoding/json"
 	"io/ioutil"
 )
 
-func GetData() []model.Cargo {
+func GetData() []models.Cargo {
 	jsonFile, err := ioutil.ReadFile("data/data.json")
 	if err != nil {
 		panic(err)
 	}
-	return model.ParseCargo(jsonFile)
+	return models.ParseCargo(jsonFile)
 }
 
-func SaveData(cargo model.Cargo) bool {
+func SaveData(cargo models.Cargo) bool {
 	data := GetData()
 	data = append(data, cargo)
 	jsonData, err := json.Marshal(data)
