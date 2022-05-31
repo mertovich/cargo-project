@@ -60,3 +60,10 @@ func CargoUpdateLocation(id string, location string) bool {
 	cargo.Location = location
 	return SaveData(cargo)
 }
+
+func CargoUpdateStatus(id string, status string) bool {
+	cargo := GetCargoID(id)
+	CargoDelete(id)
+	cargo.Status = status
+	return SaveData(cargo)
+}
