@@ -28,3 +28,21 @@ func UpdateCargoLocation(w http.ResponseWriter, r *http.Request) {
 
 	fmt.Fprint(w, cargo)
 }
+
+func UpdateCargoStatus(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
+
+	if r.URL.Path != "/api/updatecargostatus" {
+		http.NotFound(w, r)
+		return
+	}
+
+	bodyByte, _ := ioutil.ReadAll(r.Body)
+	bodyString := string(bodyByte)
+	maps := BodyParser.Parser(bodyString)
+	data.CargoUpdateStatus(maps["id"], strings.ReplaceAll(maps["status"], "%20", " "))
+	cargo := data.GetCargoID(maps["id"])
+
+	fmt.Fprint(w, cargo)
+}
