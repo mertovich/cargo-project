@@ -1,0 +1,35 @@
+.greeting-div {
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.greeing-card {
+    width: 50%;
+    padding: 1%;
+    font-size: large;
+    border: none;
+    border-radius: 10px;
+    margin: 1%;
+    color: white;
+}
+
+.greeing-card-img {
+    height: 50%;
+}
+
+.greeing-card-p {
+    text-align: justify;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+
+@media only screen and (max-width: 768px) {
+    .greeing-card-p {
+        font-size: normal;
+        margin-left: 3%;
+        margin-right: 3%;
+    }
+  }
