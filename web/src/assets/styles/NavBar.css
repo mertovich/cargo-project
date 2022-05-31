@@ -1,0 +1,21 @@
+.navbar-div {
+    background-color: #202A25;
+    height: 8vh;
+}
+
+.navbar-ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.navbar-link{
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.navbar-link:hover{
+    color: #FFD29D;
+}
