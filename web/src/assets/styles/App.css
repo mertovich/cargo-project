@@ -1,0 +1,10 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.main-div {
+    height: 100vh;
+    background-color: #202A25;
+    overflow-x: hidden;
+}
