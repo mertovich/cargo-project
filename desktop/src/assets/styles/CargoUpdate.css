@@ -1,0 +1,41 @@
+.cargo-update-div {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3%;
+}
+
+.cargo-update-input {
+    width: 50%;
+    border-radius: 10px;
+    border: none;
+    padding: 1%;
+    margin: 1%;
+}
+
+.cargo-update-input:focus {
+    outline: none;
+}
+
+.cargo-update-button{
+    width: 10%;
+    border: none;
+    background-color: #00b300;
+    color: white;
+    font-size: large;
+    padding: 1%;
+    margin: 1%;
+    border-radius: 10px;
+}
+
+.cargo-update-button:hover {
+    background-color: #009900;
+    transition-delay: 0.1s;
+}
+
+
+@media only screen and (max-width: 768px) {
+    .cargo-update-button {
+        width: 20%;
+    }
+  }
