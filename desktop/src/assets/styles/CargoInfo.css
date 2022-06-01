@@ -1,0 +1,23 @@
+.cargo-info-div {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5%;
+}
+
+.cargo-table-div {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.cargo-table-th {
+    border: 1px solid wheat;
+    font-size: large;
+    font-weight: bold;
+    padding: 1%;
+}
+
+.cargo-table-td {
+    border: 1px solid wheat;
+    padding: 1%;
+}
