@@ -1,0 +1,31 @@
+.cargo-info-div{
+    height: 50vh;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.cargo-info-img {
+    height: 25%;
+}
+
+.cargo-info-h2 {
+    font-weight: bold;
+    color: #fff;
+    margin: 1%;
+}
+
+.cargo-info-p {
+    color: #fff;
+    margin: 1%;
+    font-weight: bold;
+    font-size: large;
+    text-align: center;
+}
+
+.cargo-info-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin: 1%;
+}
