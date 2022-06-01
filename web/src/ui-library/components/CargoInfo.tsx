@@ -15,9 +15,9 @@ interface IProps {
 
 const CargoInfo: React.FC<IProps> = ({ Cargo }) => {
   const renderCargoImg = (cargoType: string) => {
-    if (cargoType === 'move') {
+    if (cargoType === 'in transport') {
       return cMove
-    } else if (cargoType === 'door') {
+    } else if (cargoType === 'eleased for distribution') {
       return cDoor
     } else {
       return c1
