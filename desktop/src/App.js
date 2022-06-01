@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React,{useState} from 'react'
+import '../src/assets/styles/App.css'
+import CargoInfo from './ui-library/components/CargoInfo'
+import CargoSearch from './ui-library/components/CargoSearch'
+import CargoUpdate from './ui-library/components/CargoUpdate'
 
-function App() {
+const App = () => {
+  const [Cargo,setCargo] = useState({})
+
+  const getSetCargo = (cargo) => {
+    setCargo(cargo)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='main-div' >
+     <CargoSearch getSetCargo={getSetCargo}/>
+     <CargoInfo Cargo={Cargo} />
+     <CargoUpdate Cargo={Cargo} getSetCargo={getSetCargo} />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
