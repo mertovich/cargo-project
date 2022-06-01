@@ -1,0 +1,13 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.main-div {
+    height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+    background-color: #202A25;
+    color: white;
+}
