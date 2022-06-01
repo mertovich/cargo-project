@@ -2,12 +2,10 @@ package handlers
 
 import (
 	"api/data"
+	"encoding/json"
 	"fmt"
 	"io/ioutil"
 	"net/http"
-	"strings"
-
-	"github.com/mertovich/BodyParser"
 )
 
 func UpdateCargoLocation(w http.ResponseWriter, r *http.Request) {
@@ -19,14 +17,18 @@ func UpdateCargoLocation(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	bodyByte, _ := ioutil.ReadAll(r.Body)
-	bodyString := string(bodyByte)
-	maps := BodyParser.Parser(bodyString)
-	location := strings.ReplaceAll(maps["location"], "%20", " ")
-	data.CargoUpdateLocation(maps["id"], location)
-	cargo := data.GetCargoID(maps["id"])
+	type location struct {
+		ID       string `json:"id"`
+		Location string `json:"location"`
+	}
 
-	fmt.Fprint(w, cargo)
+	bodyByte, _ := ioutil.ReadAll(r.Body)
+	l := location{}
+	json.Unmarshal(bodyByte, &l)
+	data.CargoUpdateLocation(l.ID, l.Location)
+	cargo := data.GetCargoID(l.ID)
+	cargoJSON, _ := json.Marshal(cargo)
+	fmt.Fprint(w, string(cargoJSON))
 }
 
 func UpdateCargoStatus(w http.ResponseWriter, r *http.Request) {
@@ -38,11 +40,17 @@ func UpdateCargoStatus(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	bodyByte, _ := ioutil.ReadAll(r.Body)
-	bodyString := string(bodyByte)
-	maps := BodyParser.Parser(bodyString)
-	data.CargoUpdateStatus(maps["id"], strings.ReplaceAll(maps["status"], "%20", " "))
-	cargo := data.GetCargoID(maps["id"])
+	type status struct {
+		ID     string `json:"id"`
+		Status string `json:"status"`
+	}
 
-	fmt.Fprint(w, cargo)
+	bodyByte, _ := ioutil.ReadAll(r.Body)
+	s := status{}
+	json.Unmarshal(bodyByte, &s)
+	data.CargoUpdateStatus(s.ID, s.Status)
+	cargo := data.GetCargoID(s.ID)
+	cargoJSON, _ := json.Marshal(cargo)
+
+	fmt.Fprint(w, string(cargoJSON))
 }
