@@ -1,0 +1,37 @@
+.cargo-register-div {
+    margin-top: 3%;
+    text-align: center;
+}
+
+.cargo-register-input-div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cargo-register-input {
+    border: none;
+    border-radius: 10px;
+    margin: 1%;
+    padding: 1%;
+}
+
+.cargo-register-input:focus {
+    outline: none;
+}
+
+.cargo-register-button {
+    width: 10%;
+    border: none;
+    background-color: #00b300;
+    color: white;
+    font-size: large;
+    padding: 1%;
+    margin: 1%;
+    border-radius: 10px;
+}
+
+.cargo-register-button:hover{
+    background-color: #009900;
+    transition-delay: 0.1s;
+}
